@@ -3,11 +3,14 @@ package controllers
 import (
 	"net/http"
 
+	usecaseproduct "clean-arch-api/src/usecase/product"
+
 	"github.com/gin-gonic/gin"
 )
 
 func RequestProducts(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"name": "Luiz Resplande",
-	})
+
+	product := usecaseproduct.RegisterProduct()
+
+	c.JSON(http.StatusOK, product)
 }
